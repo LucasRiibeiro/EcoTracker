@@ -1,65 +1,69 @@
 import { useEffect, useState } from 'react';
-import { FlatList, View } from 'react-native';
-import { Trophy } from 'phosphor-react-native';
+import { FlatList, View, Text, ImageBackground } from 'react-native';
+import { Tree } from 'phosphor-react-native';
 import { useNavigation } from '@react-navigation/native';
-
-import { Level } from '../../components/Level';
-import { Header } from '../../components/Header';
+import { CardEstado, TextCard, Container, Title, TextContainer, Label, SubTitle, Content } from './myStyle';
+import { Level} from '../../components/Level';
+import { Header} from '../../components/Header';
 import { QuizCard } from '../../components/QuizCard';
 
 import { styles } from './styles';
 import { QUIZZES } from '../../data/quizzes';
+import json from '../../data/dados.json';
 
 export function Home() {
   const [quizzes, setQuizzes] = useState(QUIZZES);
-  const [levels, setLevels] = useState([1, 2, 3]);
+  const [selectedLevel, setSelectedLevel] = useState(1); // Nível médio como padrão
+  const [listaDeItens, setListaDeItens] = useState([]); // Usando useState para criar a lista
 
   const { navigate } = useNavigation();
-
-  function handleLevelFilter(level: number) {
-    const levelAlreadySelected = levels.includes(level);
-
-    if (levelAlreadySelected) {
-      if (levels.length > 1) {
-        setLevels(prevState => prevState.filter(item => item !== level));
-      }
-    } else {
-      setLevels(prevState => [...prevState, level]);
-    }
-  }
+  const co2Dados = json.dados;
 
   useEffect(() => {
-    setQuizzes(QUIZZES.filter(quiz => levels.includes(quiz.level)));
-  }, [levels]);
+    // Atualize a lista de itens com base no nível selecionado
+    const updatedListaDeItens = co2Dados
+      .filter((item) => item.Level === selectedLevel)
+      .map((item, index) => (
+        <CardEstado key={index}>
+          <TextContainer>
+            <TextCard>{item.Nome}</TextCard>
+            <TextCard>{item.Emissao}</TextCard>
+          </TextContainer>
+        </CardEstado>
+      ));
+    setListaDeItens(updatedListaDeItens);
+  }, [selectedLevel]);
+
+  function handleLevelFilter(level) {
+    setSelectedLevel(level); // Atualiza o nível selecionado
+  }
 
   return (
     <View style={styles.container}>
       <Header
-        icon={Trophy}
-        title="Vamos estudar"
-        subtitle="Treine seus conhecimento"
+        icon={Tree}
+        title="Eco Tracker"
+        subtitle="Seu App de Consciência Ambiental"
         onPress={() => navigate('history')}
       />
 
       <View style={styles.levels}>
-        <Level title="Fácil" type="EASY" onPress={() => handleLevelFilter(1)} isChecked={levels.includes(1)} />
-        <Level title="Médio" type="MEDIUM" onPress={() => handleLevelFilter(2)} isChecked={levels.includes(2)} />
-        <Level title="Difícil" type="HARD" onPress={() => handleLevelFilter(3)} isChecked={levels.includes(3)} />
+        <Level title="CO2" type="EASY" onPress={() => handleLevelFilter(1)} isChecked={selectedLevel === 1} />
+        <Level title="Poluição" type="MEDIUM" onPress={() => handleLevelFilter(2)} isChecked={selectedLevel === 2} />
       </View>
 
-      <FlatList
-        data={quizzes}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <QuizCard
-            data={item}
-            onPress={() => navigate('quiz', { id: item.id })}
-          />
-        )}
-        numColumns={2}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.cards}
-      />
+      {selectedLevel === 1 && (
+        <Container>
+          <Title>Emissão de CO2 por Estados</Title>
+          <SubTitle>*Obs: Os valores apresentados são em toneladas de CO2 emitidos por habitantes</SubTitle>
+          <TextContainer>
+            <Label>Estado</Label>
+            <Label>Emissão</Label>
+          </TextContainer>
+          {listaDeItens}
+        </Container>
+      )}
+  
     </View>
   );
 }

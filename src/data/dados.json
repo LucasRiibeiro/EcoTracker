@@ -1,0 +1,138 @@
+{
+  "dados": [
+    {
+      "Nome": "Roraima",
+      "Emissao": "94,4",
+      "Level": 1
+    },
+    {
+      "Nome": "Rondonia",
+      "Emissao": "76",
+      "Level": 1
+    },
+    {
+      "Nome": "Mato Grosso",
+      "Emissao": "75,5",
+      "Level": 1
+    },
+    {
+      "Nome": "Pará",
+      "Emissao": "51",
+      "Level": 1
+    },
+    {
+      "Nome": "Acre",
+      "Emissao": "48,5",
+      "Level": 1
+    },
+    {
+      "Nome": "Tocantins",
+      "Emissao": "35,2",
+      "Level": 1
+    },    
+    {
+      "Nome": "Amazonas",
+      "Emissao": "32,5",
+      "Level": 1
+    },
+    {
+      "Nome": "Mato Grosso do Sul",
+      "Emissao": "28,7",
+      "Level": 1
+    },
+    {
+      "Nome": "Maranhão",
+      "Emissao": "16,4",
+      "Level": 1
+    },
+    {
+      "Nome": "Goiás",
+      "Emissao": "12,9",
+      "Level": 1
+    },
+    {
+      "Nome": "Rio Grande do Sul",
+      "Emissao": "9,4",
+      "Level": 1
+    },
+    {
+      "Nome": "Espirito Santo",
+      "Emissao": "8,1",
+      "Level": 1
+    },
+    {
+      "Nome": "Santa Catarina",
+      "Emissao": "8,1",
+      "Level": 1
+    },
+    {
+      "Nome": "Minas Gerais",
+      "Emissao": "7,9",
+      "Level": 1
+    },
+    {
+      "Nome": "Paraná",
+      "Emissao": "7,4",
+      "Level": 1
+    },
+    {
+      "Nome": "Bahia",
+      "Emissao": "5,4",
+      "Level": 1
+    },
+    {
+      "Nome": "Amapá",
+      "Emissao": "5,2",
+      "Level": 1
+    },
+    {
+      "Nome": "Piauí",
+      "Emissao": "4,7",
+      "Level": 1
+    },
+    {
+      "Nome": "Sergipe",
+      "Emissao": "4,5",
+      "Level": 1
+    },
+    {
+      "Nome": "Rio de Janeiro",
+      "Emissao": "4,2",
+      "Level": 1
+    },
+    {
+      "Nome": "São Paulo",
+      "Emissao": "3,4",
+      "Level": 1
+    },
+    {
+      "Nome": "Paraíba",
+      "Emissao": "3,2",
+      "Level": 1
+    },
+    {
+      "Nome": "Ceará",
+      "Emissao": "3",
+      "Level": 1
+    },
+    {
+      "Nome": "Rio Grande do Norte",
+      "Emissao": "2,8",
+      "Level": 1
+    },
+    {
+      "Nome": "Alagoas",
+      "Emissao": "2,7",
+      "Level": 1
+    },
+    {
+      "Nome": "Pernambuco",
+      "Emissao": "2,6",
+      "Level": 1
+    },
+    {
+      "Nome": "Distrito Federal",
+      "Emissao": "2,4",
+      "Level": 1
+    }
+  ]}

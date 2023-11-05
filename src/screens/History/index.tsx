@@ -7,7 +7,7 @@ import { Header } from '../../components/Header';
 import { HistoryCard, HistoryProps } from '../../components/HistoryCard';
 
 import { styles } from './styles';
-import { historyGetAll, historyRemove } from '../../storage/quizHistoryStorage';
+import { historyGetAll} from '../../storage/quizHistoryStorage';
 import { Loading } from '../../components/Loading';
 
 export function History() {
@@ -21,27 +21,7 @@ export function History() {
     setHistory(response);
     setIsLoading(false);
   }
-
-  async function remove(id: string) {
-    await historyRemove(id);
-
-    fetchHistory();
-  }
-
-  function handleRemove(id: string) {
-    Alert.alert(
-      'Remover',
-      'Deseja remover esse registro?',
-      [
-        {
-          text: 'Sim', onPress: () => remove(id)
-        },
-        { text: 'Não', style: 'cancel' }
-      ]
-    );
-
-  }
-
+  
   useEffect(() => {
     fetchHistory();
   }, []);
@@ -53,8 +33,8 @@ export function History() {
   return (
     <View style={styles.container}>
       <Header
-        title="Histórico"
-        subtitle={`Seu histórico de estudos${'\n'}realizados`}
+        title="O Rastrador Ecológico"
+        subtitle={`Um Tracker geral sobre o tema`}
         icon={HouseLine}
         onPress={goBack}
       />
@@ -63,16 +43,6 @@ export function History() {
         contentContainerStyle={styles.history}
         showsVerticalScrollIndicator={false}
       >
-        {
-          history.map((item) => (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() => handleRemove(item.id)}
-            >
-              <HistoryCard data={item} />
-            </TouchableOpacity>
-          ))
-        }
       </ScrollView>
     </View>
   );

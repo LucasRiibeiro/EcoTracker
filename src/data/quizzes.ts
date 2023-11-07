@@ -1,28 +1,40 @@
-import { Wind, FaceMask, Fire, Thermometer } from 'phosphor-react-native';
+import { CloudArrowUp, CodeSimple, ToggleLeft, PaintBucket, DeviceMobile, GitFork } from 'phosphor-react-native';
 
 export const QUIZZES = [
   {
     id: '1',
-    title: 'Emissão CO2',
+    title: 'Utilizando Estados',
     level: 1,
-    svg: FaceMask,
+    svg: ToggleLeft,
   },
   {
     id: '2',
-    title: 'Qualidade do Ar',
+    title: 'Utilizando Typescript',
     level: 2,
-    svg: Wind,
+    svg: CodeSimple,
   },
   {
     id: '3',
-    title: 'Temperatura',
+    title: 'Utilizando Navigation',
     level: 2,
-    svg: Thermometer,
+    svg: GitFork,
   },
   {
     id: '4',
-    title: 'Queimadas',
+    title: 'Styled Components',
     level: 3,
-    svg: Fire,
+    svg: PaintBucket,
+  },
+  {
+    id: '5',
+    title: 'Async Storage',
+    level: 2,
+    svg: CloudArrowUp,
+  },
+  {
+    id: '6',
+    title: 'React Native',
+    level: 1,
+    svg: DeviceMobile,
   },
 ];

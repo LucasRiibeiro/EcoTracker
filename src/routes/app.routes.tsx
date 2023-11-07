@@ -2,8 +2,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Home } from '../screens/Home';
 import { Quiz } from '../screens/Quiz';
+import { Finish } from '../screens/Finish';
 import { History } from '../screens/History';
-import { Begin } from '../screens/Begin';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -15,10 +15,6 @@ export function AppRoutes() {
       }}
     >
       <Screen
-        name="begin"
-        component={Begin}
-      />
-      <Screen
         name="home"
         component={Home}
       />
@@ -29,6 +25,10 @@ export function AppRoutes() {
       <Screen
         name="history"
         component={History}
+      />
+      <Screen
+        name="finish"
+        component={Finish}
       />
     </Navigator>
   )

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
-import { GlobeHemisphereWest as globe } from 'phosphor-react-native';
+import { Trophy } from 'phosphor-react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { Level } from '../../components/Level';
@@ -35,16 +35,16 @@ export function Home() {
   return (
     <View style={styles.container}>
       <Header
-        icon={globe} 
-        title="ECO Tracker"
-        subtitle="Para um mundo melhor"
+        icon={Trophy}
+        title="Vamos estudar"
+        subtitle="Treine seus conhecimento"
         onPress={() => navigate('history')}
       />
 
       <View style={styles.levels}>
-        <Level title="Bom" type="EASY" onPress={() => handleLevelFilter(1)} isChecked={levels.includes(1)} />
+        <Level title="Fácil" type="EASY" onPress={() => handleLevelFilter(1)} isChecked={levels.includes(1)} />
         <Level title="Médio" type="MEDIUM" onPress={() => handleLevelFilter(2)} isChecked={levels.includes(2)} />
-        <Level title="Ruim" type="HARD" onPress={() => handleLevelFilter(3)} isChecked={levels.includes(3)} />
+        <Level title="Difícil" type="HARD" onPress={() => handleLevelFilter(3)} isChecked={levels.includes(3)} />
       </View>
 
       <FlatList

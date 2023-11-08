@@ -1,6 +1,6 @@
 import react from 'react';
 
-const APIKey = '69781816-19f9-45b7-aebd-b023b3cfd7db';
+const APIKey = '8801d13a-2b4c-4ec7-b45a-aac79ae899d4';
 const APIUrl = 'https://api.airvisual.com/v2/';
 
 export const fetchStates = async () => {

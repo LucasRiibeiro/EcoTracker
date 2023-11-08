@@ -1,7 +1,0 @@
-Clima unicode funciona em partes, pois o map perde os dados de cities..
-
-Tem a key da API no código mas vou colocar aqui também. 
-
-KEY API = 1eadddb4-ebe6-4c71-9eeb-a834f8ae057b
-
-Documentação API = https://api-docs.iqair.com/?version=latest&_gl=1*fvoup2*_ga*MTM5MTc1ODMyLjE2OTkxMjA5NTA.*_ga_L8T9FHWX08*MTY5OTMwOTk4MC42LjEuMTY5OTMxMDgxNS40OS4wLjA.

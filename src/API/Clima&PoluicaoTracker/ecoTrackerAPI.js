@@ -22,13 +22,28 @@ export default function EcoTrackerAPI() {
     fetchCities(state).then((data) => setCities(data));
   };
 
-  const handleCityChange = (city) => {
+  const handleCityChange = async (city) => {
     setSelectedCity(city);
-    fetchWeatherDetails(city, selectedState).then((data) => {
-      setWeatherData(data);
-      fetchPollutionDetails(city, selectedState).then((pollutionData) => setPollutionData(pollutionData));
-
-    });
+    setWeatherData(null);
+    setPollutionData(null);
+  
+    try {
+      if (!city || !selectedState) {
+        throw new Error("Selecione um estado e uma cidade");
+      }
+  
+      const weather = await fetchWeatherDetails(city, selectedState);
+      const pollution = await fetchPollutionDetails(city, selectedState);
+  
+      setWeatherData(weather);
+      setPollutionData(pollution);
+    } catch (error) {
+      console.error("Erro ao buscar dados meteorológicos e de poluição:", error);
+  
+      // Trate o erro definindo mensagens informativas
+      setWeatherData({ error: "Dados meteorológicos não disponíveis" });
+      setPollutionData({ error: "Dados de poluição não disponíveis" });
+    }
   };
 
   return (
@@ -46,25 +61,40 @@ export default function EcoTrackerAPI() {
         />
       </View>
       <View >
-        {weatherData && (
-          <View>
-            <View style={styles.weatherContainer}>
+      {weatherData && (
+  <View>
+    {weatherData.error ? (
+      <Text style={styles.errorText}>{weatherData.error}</Text>
+    ) : (
+      <View style={styles.weatherContainer}>
+                   <View style={styles.weatherContainer}>
               <Text style={styles.headerClima}> Dados Climáticos</Text>
               <Text style={styles.weatherText}>Temperatura: {weatherData.current.weather.tp} Celsius</Text>
               <Text style={styles.weatherText}>Umidade: {weatherData.current.weather.hu} %</Text>
               <Text style={styles.weatherText}>Velocidade do vento: {weatherData.current.weather.ws} m/s</Text>
             </View>
 
-            {pollutionData && (
-              <View style={styles.pollutionContainer}>
+      </View>
+    )}
+  </View>
+)}
+
+{pollutionData && (
+  <View>
+    {pollutionData.error ? (
+      <Text style={styles.errorText}>{pollutionData.error}</Text>
+    ) : (
+      <View style={styles.pollutionContainer}>
+                    <View style={styles.pollutionContainer}>
                 <Text style={styles.headerPoluicao}> Dados de poluição do Ar</Text>
                 <Text style={styles.pollutionText}>indice de qualidade do Ar: {pollutionData.current.pollution.aqius}</Text>
                 <Text style={styles.pollutionText}>Categoria de poluição: {pollutionData.current.pollution.mainus}</Text>
            
               </View>
-            )}
-          </View>
-        )}
+      </View>
+    )}
+  </View>
+)}
       </View>
 
     </View>

@@ -9,6 +9,7 @@ import { QuizCard } from '../../components/QuizCard';
 import  Icon   from 'react-native-vector-icons/FontAwesome';
 import { styles } from './styles';
 import { QUIZZES } from '../../data/quizzes';
+import EcoTrackerAPI from '../../API/Clima&PoluicaoTracker/ecoTrackerAPI';
 import json from '../../data/dados.json';
 
 export function Home() {
@@ -88,7 +89,7 @@ export function Home() {
 
       <View style={styles.levels}>
         <Level title="CO2" type="EASY" onPress={() => handleLevelFilter(1)} isChecked={selectedLevel === 1} />
-        <Level title="Poluição" type="MEDIUM" onPress={() => handleLevelFilter(2)} isChecked={selectedLevel === 2} />
+        <Level title="Clima Tracker" type="MEDIUM" onPress={() => handleLevelFilter(2)} isChecked={selectedLevel === 2} />
       </View>
 
       {selectedLevel === 1 && (
@@ -107,6 +108,12 @@ export function Home() {
               <TextButton>Como Reduzir a emissão?</TextButton>
             </Button>
             </ButtonContainer>
+        </Container>
+      )}
+
+  {selectedLevel === 2 && (
+        <Container>
+          <EcoTrackerAPI/>
         </Container>
       )}
 

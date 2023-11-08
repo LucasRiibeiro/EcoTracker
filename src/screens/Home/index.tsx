@@ -6,7 +6,7 @@ import { CardEstado, TextCard, Container, Title, TextContainer, Label, Container
 import { Level} from '../../components/Level';
 import { Header} from '../../components/Header';
 import { QuizCard } from '../../components/QuizCard';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import  Icon   from 'react-native-vector-icons/FontAwesome';
 import { styles } from './styles';
 import { QUIZZES } from '../../data/quizzes';
 import json from '../../data/dados.json';
@@ -24,7 +24,7 @@ export function Home() {
   const [isImpactInfoVisible, setImpactInfoVisible] = useState(false);
   const [isReductionInfoVisible, setReductionInfoVisible] = useState(false);
 
-  const openModal = (itemData) => {
+  const openModal = (itemData: any) => {
     const placement = co2Dados.findIndex((state) => state.Nome === itemData.Nome) + 1;
     setSelectedItemData({ ...itemData, placement }); // Adicione a colocação ao item de dados
     setModalVisible(true);

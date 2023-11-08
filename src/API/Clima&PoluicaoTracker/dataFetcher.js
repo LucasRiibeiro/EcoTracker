@@ -40,6 +40,8 @@ export const fetchStates = async () => {
 
   };
 
+  
+
     export const fetchPollutionDetails = async (city, state) => {
       try {
         const response = await fetch(`${APIUrl}city?city=${city}&state=${state}&country=Brazil&key=${APIKey}`);

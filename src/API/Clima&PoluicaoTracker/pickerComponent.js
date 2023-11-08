@@ -20,6 +20,7 @@ export default function PickerComponent({ states, cities, selectedState, selecte
               key={state.state}
               label={transformToUppercase(state.state)}
               value={transformToUppercase(state.state)}
+              
             />
           ))
         ) : (
